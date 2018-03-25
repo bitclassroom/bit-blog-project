@@ -4,6 +4,7 @@ import PostsPage from './posts/PostsPage'
 import AuthorsPage from './authors/AuthorsPage'
 import AuthorDetailsPage from './authors/details/AuthorDetailsPage'
 import PostDetailsPage from './posts/details/PostDetailsPage'
+import AboutPage from './about/AboutPage'
 
 const Main = () => {
     return (
@@ -13,6 +14,7 @@ const Main = () => {
                 <Route exact path="/authors" component={AuthorsPage} />
                 <Route path="/authors/:id" component={AuthorDetailsPage} />
                 <Route path="/posts/:id" component={PostDetailsPage} />
+                <Route exact path="/about" component={AboutPage} />
             </Switch>
         </main>
     )
