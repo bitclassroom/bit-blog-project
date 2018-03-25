@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import PostsList from './PostsList'
+import _ from 'lodash'
+
 import { postService } from '../../services/PostService'
+
+import PostsList from './PostsList'
+import Loader from './../partials/Loader/Loader'
 
 class PostsPage extends Component {
 
@@ -15,11 +19,16 @@ class PostsPage extends Component {
         postService
             .fetchPosts()
             .then((posts) => {
-                this.setState({posts})
+                this.setState({ posts })
             })
     }
 
     render() {
+        const { posts } = this.state
+        if (_.isEmpty(posts)) {
+            return <Loader />
+        }
+
         return (
             <div>
                 <h4>POSTS</h4>

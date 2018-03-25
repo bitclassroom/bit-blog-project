@@ -1,13 +1,11 @@
-import axios from 'axios'
+import { apiService } from './apiService'
 
 import Post from './../models/Post'
-import { BASE_API_ENDPOINT } from '../shared/constans'
 
 class PostService {
     fetchPosts() {
-        const requestUrl = `${BASE_API_ENDPOINT}/posts`
-        return axios
-            .get(requestUrl)
+        return apiService
+            .get('/posts')
             .then(({ data }) => {
                 const postList = data.map((post) => {
                     return new Post(post)
@@ -18,7 +16,32 @@ class PostService {
     }
 
     fetchPostDetails(postId) {
+        return apiService
+            .get(`/posts/${postId}`)
+            .then((response) => {
+                const post = response.data
+                return new Post(post)
+            })
+    }
 
+    fetchAuthorPosts(authorId) {
+
+        const options = {
+            params: {
+                userId: authorId
+            }
+        }
+
+        return apiService
+            .get('/posts', options)
+            .then((response) => {
+                const postsData = response.data
+                const postList = postsData.map((post) => {
+                    return new Post(post)
+                })
+
+                return postList
+            })
     }
 }
 
