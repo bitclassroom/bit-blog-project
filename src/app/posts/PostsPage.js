@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import PostsList from './PostsList'
 
 class PostsPage extends Component {
     render() {
         return (
             <div>
-                This is my post page
+                <h4>POSTS</h4>
+                <PostsList />
             </div>
         )
     }
