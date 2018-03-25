@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { postService } from '../../../services/PostService'
 
 class PostsFromAuthor extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -13,17 +12,16 @@ class PostsFromAuthor extends Component {
 
     componentDidMount() {
         const { authorId } = this.props
-        postService.fetchAuthorPosts(authorId)
-            .then((posts) => {
-                this.setState({
-                    posts: posts.slice(0, 3)
-                })
+        postService.fetchAuthorPosts(authorId).then(posts => {
+            this.setState({
+                posts: posts.slice(0, 3)
             })
+        })
     }
 
     renderPosts(posts) {
-        return posts.map((post) => {
-            const {id, title} = post
+        return posts.map(post => {
+            const { id, title } = post
             return (
                 <Link to={`/posts/${id}`} key={id}>
                     <h4 className="truncate">{title}</h4>
@@ -33,7 +31,6 @@ class PostsFromAuthor extends Component {
     }
 
     render() {
-
         const { posts } = this.state
         const { renderPosts } = this
 

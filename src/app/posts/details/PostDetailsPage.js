@@ -4,7 +4,6 @@ import PostsFromAuthor from './PostsFromAuthor'
 import { postService } from '../../../services/PostService'
 
 class PostDetailsPage extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -23,14 +22,12 @@ class PostDetailsPage extends Component {
     loadPost(props) {
         const { match: { params } } = props
         const postId = params.postId
-        postService.fetchPostDetails(postId)
-            .then((post) => {
-                this.setState({ post })
-            })
+        postService.fetchPostDetails(postId).then(post => {
+            this.setState({ post })
+        })
     }
 
     render() {
-
         if (!this.state.post) {
             return <h2>Nothing here</h2>
         }

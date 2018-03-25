@@ -7,7 +7,6 @@ import PostsList from './PostsList'
 import Loader from './../partials/Loader/Loader'
 
 class PostsPage extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -16,11 +15,9 @@ class PostsPage extends Component {
     }
 
     componentDidMount() {
-        postService
-            .fetchPosts()
-            .then((posts) => {
-                this.setState({ posts })
-            })
+        postService.fetchPosts().then(posts => {
+            this.setState({ posts })
+        })
     }
 
     render() {

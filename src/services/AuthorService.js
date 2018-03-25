@@ -1,15 +1,9 @@
 class AuthorService {
-    fetchAuthors() {
-        
-    }
+    fetchAuthors() {}
 
-    fetchAuthorName(authorId) {
-        
-    }
+    fetchAuthorName(authorId) {}
 
-    fetchAuthorPosts(authorId) {
-        
-    }
+    fetchAuthorPosts(authorId) {}
 }
 
 export const authorService = new AuthorService()

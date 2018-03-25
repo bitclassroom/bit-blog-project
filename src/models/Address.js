@@ -3,4 +3,4 @@ export default class Address {
         this.street = street
         this.city = city
     }
-};
+}

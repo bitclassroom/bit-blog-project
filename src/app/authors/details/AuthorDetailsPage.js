@@ -17,7 +17,6 @@ const AuthorAddress = () => {
             <h3>Address</h3>
             <p>street: </p>
             <p>city: </p>
-
         </div>
     )
 }
@@ -28,7 +27,6 @@ const AuthorCompany = () => {
             <h3>Company</h3>
             <p>name: </p>
             <p>slogan: </p>
-
         </div>
     )
 }

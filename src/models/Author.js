@@ -8,4 +8,4 @@ export default class Author {
         this.address = new Address(user.address)
         this.company = new Company(user.company)
     }
-};
+}

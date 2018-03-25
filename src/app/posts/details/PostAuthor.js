@@ -5,10 +5,8 @@ class PostAuthor extends Component {
     render() {
         return (
             <Link to="/authors/1">
-                <div>
-                Author Name
-                </div>
-            </Link >
+                <div>Author Name</div>
+            </Link>
         )
     }
 }

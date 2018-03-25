@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const PostItem = (props) => {
-
+const PostItem = props => {
     const { id, title, body } = props
 
     return (
-        <Link to={`/posts/${id}`} >
+        <Link to={`/posts/${id}`}>
             <div className="row">
                 <div className="col s12 ">
                     <div className="card blue-grey darken-1">
