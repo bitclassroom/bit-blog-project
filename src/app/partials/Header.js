@@ -4,7 +4,7 @@ import MainMenu from './MainMenu'
 
 const Header = () => (
     <header>
-        <nav className="green darken-2">
+        <nav className="blue darken-2">
             <div className="container">
                 <div className="nav-wrapper">
                     <Link to="/" className="brand-logo left">

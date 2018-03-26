@@ -4,7 +4,7 @@ import PostItem from './PostItem'
 const PostsList = props => {
     const { posts } = props
 
-    const postsListView = posts.slice(0, 10).map(post => {
+    const postsListView = posts.map(post => {
         return <PostItem {...post} key={post.id} />
     })
 

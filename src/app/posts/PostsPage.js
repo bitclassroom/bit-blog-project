@@ -28,7 +28,7 @@ class PostsPage extends Component {
 
         return (
             <div>
-                <h4>POSTS</h4>
+                <h4 className="center-align">POSTS</h4>
                 <PostsList posts={this.state.posts} />
             </div>
         )

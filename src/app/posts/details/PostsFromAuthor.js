@@ -24,7 +24,7 @@ class PostsFromAuthor extends Component {
             const { id, title } = post
             return (
                 <Link to={`/posts/${id}`} key={id}>
-                    <h4 className="truncate">{title}</h4>
+                    <h5 className="truncate">- {title}</h5>
                 </Link>
             )
         })

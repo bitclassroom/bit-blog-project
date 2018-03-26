@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+
+import { postService } from '../../../services/PostService'
+
 import PostAuthor from './PostAuthor'
 import PostsFromAuthor from './PostsFromAuthor'
-import { postService } from '../../../services/PostService'
 
 class PostDetailsPage extends Component {
     constructor(props) {
@@ -22,26 +24,30 @@ class PostDetailsPage extends Component {
     loadPost(props) {
         const { match: { params } } = props
         const postId = params.postId
-        postService.fetchPostDetails(postId).then(post => {
-            this.setState({ post })
-        })
+
+        postService
+            .fetchPostDetails(postId)
+            .then(post => {
+                this.setState({ post })
+            })
     }
 
     render() {
         if (!this.state.post) {
-            return <h2>Nothing here</h2>
+            return <h3 className="center-align">Loading...</h3>
         }
 
         const { title, body, authorId } = this.state.post
 
         return (
-            <div className="card-panel">
-                <h3>{title}</h3>
+            <Fragment>
+                <h3 className="center-align"    >{title}</h3>
                 <PostAuthor authorId={authorId} />
-                <p>{body}</p>
-                <hr />
+                <div className="card-panel">
+                    <p className="flow-text">{body}</p>
+                </div>
                 <PostsFromAuthor authorId={authorId} />
-            </div>
+            </Fragment>
         )
     }
 }

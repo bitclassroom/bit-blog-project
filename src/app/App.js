@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react'
 
+import 'materialize-css/dist/css/materialize.css'
+
 import Header from './partials/Header'
 import Main from './Main'
 import Footer from './partials/Footer'
-
-import './App.css'
-
-import 'materialize-css/dist/css/materialize.css'
 
 class App extends Component {
     render() {
