@@ -27,7 +27,6 @@ const fetchApiService = {
     },
 
     post(path, data) {
-
         const requestUrl = this.baseUrl + path
 
         const options = {

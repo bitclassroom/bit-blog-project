@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { authorService } from '../../../services/AuthorService'
 
 class PostAuthor extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -13,15 +12,12 @@ class PostAuthor extends Component {
 
     componentWillMount() {
         const { authorId } = this.props
-        authorService
-            .fetchAuthor(authorId)
-            .then((author) => {
-                this.setState({ author })
-            })
+        authorService.fetchAuthor(authorId).then(author => {
+            this.setState({ author })
+        })
     }
 
     render() {
-
         if (!this.state.author) {
             return <p>...</p>
         }

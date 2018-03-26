@@ -12,11 +12,9 @@ class AuthorsPage extends Component {
     }
 
     componentDidMount() {
-        authorService
-            .fetchAuthors()
-            .then((authors) => {
-                this.setState({ authors })
-            })
+        authorService.fetchAuthors().then(authors => {
+            this.setState({ authors })
+        })
     }
 
     render() {

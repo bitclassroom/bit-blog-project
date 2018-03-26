@@ -25,11 +25,9 @@ class PostDetailsPage extends Component {
         const { match: { params } } = props
         const postId = params.postId
 
-        postService
-            .fetchPostDetails(postId)
-            .then(post => {
-                this.setState({ post })
-            })
+        postService.fetchPostDetails(postId).then(post => {
+            this.setState({ post })
+        })
     }
 
     render() {
@@ -41,7 +39,7 @@ class PostDetailsPage extends Component {
 
         return (
             <Fragment>
-                <h3 className="center-align"    >{title}</h3>
+                <h3 className="center-align">{title}</h3>
                 <PostAuthor authorId={authorId} />
                 <div className="card-panel">
                     <p className="flow-text">{body}</p>
