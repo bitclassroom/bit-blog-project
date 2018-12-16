@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Header from './partials/Header'
+import Header from './components/Header'
 import Main from './Main'
-import Footer from './partials/Footer'
+import Footer from './components/Footer'
 
 const App = () => (
     <>
