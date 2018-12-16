@@ -3,8 +3,8 @@ import _ from 'lodash'
 
 import { postService } from '../../services/PostService'
 
+import Loader from '../components/Loader/Loader'
 import PostsList from './PostsList'
-import Loader from './../partials/Loader/Loader'
 
 class PostsPage extends Component {
     state = {
