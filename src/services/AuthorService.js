@@ -1,22 +1,19 @@
-import { apiService } from './apiService'
+import { API } from '../shared/api'
 import Author from './../models/Author'
 
 class AuthorService {
-    fetchAuthors() {
-        return apiService.get('/users').then(response => {
-            const usersData = response.data
-            return usersData.map(user => {
-                return new Author(user)
-            })
-        })
+    async fetchAuthors() {
+        const { data } = await API.get('/users')
+        const authors = data.map(user => new Author(user))
+
+        return authors
     }
 
-    fetchAuthor(authorId) {
+    async fetchAuthor(authorId) {
         const url = `/users/${authorId}`
-        return apiService.get(url).then(response => {
-            const user = response.data
-            return new Author(user)
-        })
+        const { data } = await API.get(url)
+
+        return new Author(data)
     }
 }
 

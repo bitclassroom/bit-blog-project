@@ -1,32 +1,39 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
 import { authorService } from '../../../services/AuthorService'
 
 class PostAuthor extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            author: null
-        }
+    state = {
+        author: null
     }
 
-    componentWillMount() {
-        const { authorId } = this.props
-        authorService.fetchAuthor(authorId).then(author => {
+    componentDidMount() {
+        this.loadAuthor()
+    }
+
+    async loadAuthor() {
+        try {
+            const { authorId } = this.props
+            const author = await authorService.fetchAuthor(authorId)
+
             this.setState({ author })
-        })
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     render() {
-        if (!this.state.author) {
-            return <p>...</p>
+        const { author } = this.state
+
+        if (!author) {
+            return <p className="center-align">...</p>
         }
 
-        const { authorId } = this.props
-        const { fullName } = this.state.author
+        const { id, fullName } = author
 
         return (
-            <Link to={`/authors/${authorId}`}>
+            <Link to={`/authors/${id}`}>
                 <div className="center-align">{fullName}</div>
             </Link>
         )

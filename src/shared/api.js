@@ -1,15 +1,15 @@
 import axios from 'axios'
-import { BASE_API_ENDPOINT } from './../shared/constants'
+import { BASE_API_ENDPOINT } from './constants'
 
-const apiService = axios.create({
+export const API = axios.create({
     baseURL: BASE_API_ENDPOINT,
-    timeout: 1000
+    timeout: 5000
 })
 
 // Alternative way to create abstraction over our network layer
 // using this we can easily switch behind scenes between fetch, axios
 // or some other library
-const fetchApiService = {
+export const fetchAPI = {
     baseUrl: BASE_API_ENDPOINT,
     get(path, queryParams) {
         const requestUrl = this.baseUrl + path
@@ -42,5 +42,3 @@ const fetchApiService = {
             .then(data => ({ data }))
     }
 }
-
-export { apiService, fetchApiService }

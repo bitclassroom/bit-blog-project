@@ -1,14 +1,6 @@
 import React from 'react'
 import PostItem from './PostItem'
 
-const PostsList = props => {
-    const { posts } = props
-
-    const postsListView = posts.map(post => {
-        return <PostItem {...post} key={post.id} />
-    })
-
-    return <div>{postsListView}</div>
-}
+const PostsList = ({ posts = [] }) => posts.map(post => <PostItem {...post} key={post.id} />)
 
 export default PostsList

@@ -1,48 +1,38 @@
-import { apiService } from './apiService'
+import { API } from '../shared/api'
 
 import Post from './../models/Post'
 
 class PostService {
-    fetchPosts() {
-        return apiService.get('/posts').then(({ data }) => {
-            const postList = data.map(post => {
-                return new Post(post)
-            })
+    async fetchPosts() {
+        const { data } = await API.get('/posts')
+        const posts = data.map(post => new Post(post))
 
-            return postList.reverse()
-        })
+        return posts.reverse()
     }
 
-    fetchPostDetails(postId) {
-        return apiService.get(`/posts/${postId}`).then(response => {
-            const post = response.data
-            return new Post(post)
-        })
+    async fetchPostDetails(postId) {
+        const { data } = await API.get(`/posts/${postId}`)
+        return new Post(data)
     }
 
-    fetchAuthorPosts(authorId) {
+    async fetchAuthorPosts(authorId) {
         const options = {
             params: {
                 userId: authorId,
-                _limit: 3
+                _limit: 4
             }
         }
 
-        return apiService.get('/posts', options).then(response => {
-            const postsData = response.data
-            const postList = postsData.map(post => {
-                return new Post(post)
-            })
+        const { data } = await API.get('/posts', options)
+        const postList = data.map(post => new Post(post))
 
-            return postList
-        })
+        return postList
     }
 
-    createPost(data) {
-        return apiService
-            .post('/posts', data)
-            .then(response => response.data)
-            .then(postData => new Post(postData))
+    async createPost(payload) {
+        const { data } = await API.post('/posts', payload)
+
+        return new Post(data)
     }
 }
 

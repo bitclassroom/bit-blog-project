@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 import { postService } from '../../../services/PostService'
 
@@ -14,38 +14,44 @@ class PostDetailsPage extends Component {
     }
 
     componentDidMount() {
-        this.loadPost(this.props)
+        this.loadPost()
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.loadPost(nextProps)
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.match.url !== prevProps.match.url) {
+            this.loadPost()
+        }
     }
 
-    loadPost(props) {
-        const { match: { params } } = props
-        const postId = params.postId
+    async loadPost() {
+        const {
+            match: { params }
+        } = this.props
+        const { postId } = params
 
-        postService.fetchPostDetails(postId).then(post => {
-            this.setState({ post })
-        })
+        const post = await postService.fetchPostDetails(postId)
+
+        this.setState({ post })
     }
 
     render() {
-        if (!this.state.post) {
+        const { post } = this.state
+
+        if (!post) {
             return <h3 className="center-align">Loading...</h3>
         }
 
-        const { title, body, authorId } = this.state.post
+        const { title, body, authorId } = post
 
         return (
-            <Fragment>
+            <>
                 <h3 className="center-align">{title}</h3>
                 <PostAuthor authorId={authorId} />
                 <div className="card-panel">
                     <p className="flow-text">{body}</p>
                 </div>
                 <PostsFromAuthor authorId={authorId} />
-            </Fragment>
+            </>
         )
     }
 }

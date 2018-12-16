@@ -4,26 +4,27 @@ import AuthorsList from './AuthorsList'
 import { authorService } from '../../services/AuthorService'
 
 class AuthorsPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            authors: []
-        }
+    state = {
+        authors: []
     }
 
     componentDidMount() {
-        authorService.fetchAuthors().then(authors => {
-            this.setState({ authors })
-        })
+        this.loadAuthors()
+    }
+
+    async loadAuthors() {
+        const authors = await authorService.fetchAuthors()
+
+        this.setState({ authors })
     }
 
     render() {
         const { authors } = this.state
         return (
-            <div>
+            <>
                 <h4 className="center-align">AUTHORS</h4>
                 <AuthorsList authors={authors} />
-            </div>
+            </>
         )
     }
 }
