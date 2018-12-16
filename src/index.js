@@ -1,8 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './app/App'
-import registerServiceWorker from './registerServiceWorker'
+import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'))
-registerServiceWorker()
+import App from './app/App'
+
+import './index.css'
+import 'materialize-css/dist/css/materialize.css'
+
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root')
+)

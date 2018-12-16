@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-import './App.css'
+import Header from './partials/Header'
+import Main from './Main'
+import Footer from './partials/Footer'
 
-import 'materialize-css/dist/css/materialize.css'
-
-class App extends Component {
-    render() {
-        return (
-            <main className="container">
-                This is my app
-            </main>
-        )
-    }
-}
+const App = () => (
+    <>
+        <Header />
+        <Main />
+        <Footer />
+    </>
+)
 
 export default App
