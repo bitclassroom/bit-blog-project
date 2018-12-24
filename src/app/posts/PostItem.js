@@ -6,7 +6,7 @@ const PostItem = ({ id, title, body }) => (
         <div className="col s12 hoverable">
             <div className="card blue darken-1">
                 <div className="card-content white-text">
-                    <span className="card-title">{title}</span>
+                    <span className="card-title truncate">{title}</span>
                     <p>{body}</p>
                 </div>
             </div>

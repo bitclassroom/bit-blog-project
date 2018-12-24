@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import AuthorsList from './AuthorsList'
 import { authorService } from '../../services/AuthorService'
+import { cancelAPIRequests } from '../../shared/api'
 
 class AuthorsPage extends Component {
     state = {
@@ -10,6 +11,10 @@ class AuthorsPage extends Component {
 
     componentDidMount() {
         this.loadAuthors()
+    }
+
+    componentWillUnmount() {
+        cancelAPIRequests()
     }
 
     async loadAuthors() {
