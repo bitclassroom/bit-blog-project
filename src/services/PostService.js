@@ -3,8 +3,8 @@ import { API } from '../shared/api'
 import Post from './../models/Post'
 
 class PostService {
-    async fetchPosts() {
-        const { data } = await API.get('/posts')
+    async fetchPosts(page = 1) {
+        const { data } = await API.get(`/posts?_page=${page}`)
         const posts = data.map(post => new Post(post))
 
         return posts.reverse()
