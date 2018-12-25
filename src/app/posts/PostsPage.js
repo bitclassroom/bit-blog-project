@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import { cancelAPIRequests } from '../../shared/api'
 import { postService } from '../../services/PostService'
 
 import Loader from '../components/Loader/Loader'
@@ -21,10 +20,6 @@ class PostsPage extends Component {
 
         this.loadPosts(page)
         this.initInfiniteScroll()
-    }
-
-    componentWillUnmount() {
-        cancelAPIRequests()
     }
 
     initInfiniteScroll() {
