@@ -1,17 +1,9 @@
 import axios from 'axios'
 import { BASE_API_ENDPOINT } from './constants'
 
-const CancelToken = axios.CancelToken
-const request = CancelToken.source()
-
-export const cancelAPIRequests = () => {
-    request.cancel()
-}
-
 export const API = axios.create({
     baseURL: BASE_API_ENDPOINT,
-    timeout: 5000,
-    cancelToken: request.token
+    timeout: 5000
 })
 
 // Alternative way to create abstraction over our network layer
