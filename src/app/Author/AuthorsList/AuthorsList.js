@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 
-import Loader from '../components/Loader/Loader'
+import Loader from '../../components/Loader/Loader'
 import AuthorItem from './AuthorItem'
 
 const AuthorsList = ({ authors = [] }) => {

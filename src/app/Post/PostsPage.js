@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
+import { ui } from '../../shared/ui'
 import { postService } from '../../services/PostService'
 
 import Loader from '../components/Loader/Loader'
-import PostsList from './PostsList'
-import { ui } from '../../shared/ui'
+import PostsList from './PostsList/PostsList'
 
 class PostsPage extends Component {
     state = {

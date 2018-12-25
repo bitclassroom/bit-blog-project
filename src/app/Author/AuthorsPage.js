@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
-import AuthorsList from './AuthorsList'
 import { authorService } from '../../services/AuthorService'
+
+import AuthorsList from './AuthorsList/AuthorsList'
 
 class AuthorsPage extends Component {
     state = {

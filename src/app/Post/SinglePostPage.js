@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 
-import { postService } from '../../../services/PostService'
+import { postService } from '../../services/PostService'
 
-import PostAuthor from './PostAuthor'
-import PostsFromAuthor from './PostsFromAuthor'
+import PostAuthor from './SinglePost/PostAuthor'
+import PostsFromAuthor from './SinglePost/PostsFromAuthor'
 
-class PostDetailsPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            post: null
-        }
+class SinglePostPage extends Component {
+    state = {
+        post: null
     }
 
     componentDidMount() {
@@ -56,4 +53,4 @@ class PostDetailsPage extends Component {
     }
 }
 
-export default PostDetailsPage
+export default SinglePostPage

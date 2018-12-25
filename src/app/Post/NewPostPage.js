@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
+
 import { postService } from '../../services/PostService'
 
 class NewPostPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            title: '',
-            body: ''
-        }
+    state = {
+        title: '',
+        body: ''
     }
 
     onInputChange = event => {

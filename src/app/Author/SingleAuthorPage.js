@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 
-import { authorService } from '../../../services/AuthorService'
+import { authorService } from '../../services/AuthorService'
 
-import AuthorInfo from './AuthorInfo'
-import AuthorAddress from './AuthorAddress'
-import AuthorCompany from './AuthorCompany'
+import AuthorInfo from './SingleAuthor/AuthorInfo'
+import AuthorAddress from './SingleAuthor/AuthorAddress'
+import AuthorCompany from './SingleAuthor/AuthorCompany'
 
-class AuthorDetailsPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            author: null
-        }
+class SingleAuthorPage extends Component {
+    state = {
+        author: null
     }
 
     componentDidMount() {
@@ -45,4 +42,4 @@ class AuthorDetailsPage extends Component {
     }
 }
 
-export default AuthorDetailsPage
+export default SingleAuthorPage
