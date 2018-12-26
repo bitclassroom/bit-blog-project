@@ -4,6 +4,7 @@ import { postService } from '../../services/PostService'
 
 import PostAuthor from './SinglePost/PostAuthor'
 import PostsFromAuthor from './SinglePost/PostsFromAuthor'
+import CommentsList from './Comments/CommentsList'
 
 class SinglePostPage extends Component {
     state = {
@@ -38,7 +39,7 @@ class SinglePostPage extends Component {
             return <h3 className="center-align">Loading...</h3>
         }
 
-        const { title, body, authorId } = post
+        const { id, title, body, authorId } = post
 
         return (
             <>
@@ -47,7 +48,11 @@ class SinglePostPage extends Component {
                 <div className="card-panel">
                     <p className="flow-text">{body}</p>
                 </div>
+                <br />
                 <PostsFromAuthor authorId={authorId} />
+                <br />
+                <h5>Comments</h5>
+                <CommentsList postId={id} />
             </>
         )
     }
