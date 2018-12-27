@@ -34,9 +34,9 @@ class SingleAuthorPage extends Component {
         return (
             <div>
                 <h4 className="center-align">AUTHOR</h4>
-                <AuthorInfo {...author} />
-                <AuthorAddress {...address} />
-                <AuthorCompany {...company} />
+                <AuthorInfo author={author} />
+                <AuthorAddress address={address} />
+                <AuthorCompany company={company} />
             </div>
         )
     }

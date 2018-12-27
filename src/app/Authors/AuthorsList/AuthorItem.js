@@ -1,7 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const AuthorItem = ({ id, fullName }) => (
+import Author from '../../../models/Author'
+
+const AuthorItem = ({ author: { id, fullName } }) => (
     <Link to={`/authors/${id}`}>
         <div className="card blue darken-1 hoverable">
             <div className="card-content white-text">
@@ -10,5 +13,9 @@ const AuthorItem = ({ id, fullName }) => (
         </div>
     </Link>
 )
+
+AuthorItem.propTypes = {
+    author: PropTypes.instanceOf(Author).isRequired
+}
 
 export default AuthorItem

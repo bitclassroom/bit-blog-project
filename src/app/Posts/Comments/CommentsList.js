@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { commentsService } from '../../../services/CommentsService'
 
@@ -45,6 +46,10 @@ class CommentsList extends Component {
             </ul>
         )
     }
+}
+
+CommentsList.propTypes = {
+    postId: PropTypes.number.isRequired
 }
 
 export default CommentsList
