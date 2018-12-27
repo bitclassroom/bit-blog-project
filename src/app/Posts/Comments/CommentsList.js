@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { commentsService } from '../../../services/CommentsService'
 
@@ -15,6 +16,12 @@ class CommentsList extends Component {
 
     componentDidMount() {
         this.loadComments()
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.postId !== prevProps.postId) {
+            this.loadComments()
+        }
     }
 
     async loadComments() {
@@ -39,6 +46,10 @@ class CommentsList extends Component {
             </ul>
         )
     }
+}
+
+CommentsList.propTypes = {
+    postId: PropTypes.number.isRequired
 }
 
 export default CommentsList

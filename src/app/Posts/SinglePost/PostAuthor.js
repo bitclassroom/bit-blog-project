@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import { authorService } from '../../../services/AuthorService'
@@ -38,6 +39,10 @@ class PostAuthor extends Component {
             </Link>
         )
     }
+}
+
+PostAuthor.propTypes = {
+    authorId: PropTypes.number.isRequired
 }
 
 export default PostAuthor
