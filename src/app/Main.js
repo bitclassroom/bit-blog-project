@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import PostsPage from './Posts/PostsPage'
-import NewPostPage from './Posts/NewPostPage'
-import SinglePostPage from './Posts/SinglePostPage'
-import AuthorsPage from './Authors/AuthorsPage'
-import SingleAuthorPage from './Authors/SingleAuthorPage'
+import PostsPage from './Post/PostsPage'
+import NewPostPage from './Post/NewPostPage'
+import SinglePostPage from './Post/SinglePostPage'
+import AuthorsPage from './Author/AuthorsPage'
+import SingleAuthorPage from './Author/SingleAuthorPage'
 import AboutPage from './About/AboutPage'
 
 const Main = () => (

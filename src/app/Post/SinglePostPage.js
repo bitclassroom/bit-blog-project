@@ -49,7 +49,7 @@ class SinglePostPage extends Component {
                     <p className="flow-text">{body}</p>
                 </div>
                 <br />
-                <PostsFromAuthor authorId={authorId} />
+                <PostsFromAuthor authorId={authorId} postId={id} />
                 <br />
                 <h5>Comments</h5>
                 <CommentsList postId={id} />

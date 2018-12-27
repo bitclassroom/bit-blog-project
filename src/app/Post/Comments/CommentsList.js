@@ -17,6 +17,12 @@ class CommentsList extends Component {
         this.loadComments()
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.postId !== prevProps.postId) {
+            this.loadComments()
+        }
+    }
+
     async loadComments() {
         const { postId } = this.props
         try {

@@ -12,11 +12,19 @@ class PostsFromAuthor extends Component {
         this.loadPosts()
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.postId !== prevProps.postId) {
+            this.loadPosts()
+        }
+    }
+
     async loadPosts() {
-        const { authorId } = this.props
+        const { authorId, postId } = this.props
         const posts = await postService.fetchAuthorPosts(authorId)
 
-        this.setState({ posts })
+        this.setState({
+            posts: posts.filter(post => post.id !== postId)
+        })
     }
 
     renderPosts() {

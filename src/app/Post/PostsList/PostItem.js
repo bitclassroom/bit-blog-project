@@ -1,7 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const PostItem = ({ id, title, body }) => (
+import Post from '../../../models/Post'
+
+const PostItem = ({ post: { id, title, body } }) => (
     <Link to={`/posts/${id}`}>
         <div className="col s12 hoverable">
             <div className="card blue darken-1">
@@ -13,5 +16,9 @@ const PostItem = ({ id, title, body }) => (
         </div>
     </Link>
 )
+
+PostItem.propTypes = {
+    post: PropTypes.instanceOf(Post).isRequired
+}
 
 export default PostItem
