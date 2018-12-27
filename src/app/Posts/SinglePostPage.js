@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
 
-import { postService } from '../../../services/PostService'
+import { postService } from '../../services/PostService'
 
-import PostAuthor from './PostAuthor'
-import PostsFromAuthor from './PostsFromAuthor'
+import PostAuthor from './SinglePost/PostAuthor'
+import PostsFromAuthor from './SinglePost/PostsFromAuthor'
+import CommentsList from './Comments/CommentsList'
 
-class PostDetailsPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            post: null
-        }
+class SinglePostPage extends Component {
+    state = {
+        post: null
     }
 
     componentDidMount() {
@@ -41,7 +39,7 @@ class PostDetailsPage extends Component {
             return <h3 className="center-align">Loading...</h3>
         }
 
-        const { title, body, authorId } = post
+        const { id, title, body, authorId } = post
 
         return (
             <>
@@ -50,10 +48,14 @@ class PostDetailsPage extends Component {
                 <div className="card-panel">
                     <p className="flow-text">{body}</p>
                 </div>
+                <br />
                 <PostsFromAuthor authorId={authorId} />
+                <br />
+                <h5>Comments</h5>
+                <CommentsList postId={id} />
             </>
         )
     }
 }
 
-export default PostDetailsPage
+export default SinglePostPage

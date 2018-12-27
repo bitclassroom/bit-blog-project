@@ -1,21 +1,21 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import PostsPage from './posts/PostsPage'
-import AuthorsPage from './authors/AuthorsPage'
-import AuthorDetailsPage from './authors/details/AuthorDetailsPage'
-import PostDetailsPage from './posts/details/PostDetailsPage'
-import AboutPage from './about/AboutPage'
-import NewPostPage from './posts/NewPostPage'
+import PostsPage from './Posts/PostsPage'
+import NewPostPage from './Posts/NewPostPage'
+import SinglePostPage from './Posts/SinglePostPage'
+import AuthorsPage from './Authors/AuthorsPage'
+import SingleAuthorPage from './Authors/SingleAuthorPage'
+import AboutPage from './About/AboutPage'
 
 const Main = () => (
     <main className="container">
         <Switch>
             <Route exact path="/" component={PostsPage} />
             <Route exact path="/posts/new" component={NewPostPage} />
-            <Route path="/posts/:postId" component={PostDetailsPage} />
+            <Route path="/posts/:postId" component={SinglePostPage} />
             <Route exact path="/authors" component={AuthorsPage} />
-            <Route path="/authors/:id" component={AuthorDetailsPage} />
+            <Route path="/authors/:id" component={SingleAuthorPage} />
             <Route exact path="/about" component={AboutPage} />
         </Switch>
     </main>
