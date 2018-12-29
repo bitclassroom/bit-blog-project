@@ -39,10 +39,10 @@ class PostsFromAuthor extends Component {
 
     render() {
         return (
-            <div>
+            <>
                 <h5>Posts from same author</h5>
                 {this.renderPosts()}
-            </div>
+            </>
         )
     }
 }
