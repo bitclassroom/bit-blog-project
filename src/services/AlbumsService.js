@@ -6,7 +6,8 @@ class AlbumsService {
     async fetchAlbums(page = 1) {
         const options = {
             params: {
-                _page: page
+                _page: page,
+                _limit: 5
             }
         }
 
