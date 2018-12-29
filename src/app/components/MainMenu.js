@@ -10,6 +10,9 @@ const MainMenu = () => (
             <Link to="/authors">Authors</Link>
         </li>
         <li>
+            <Link to="/albums">Albums</Link>
+        </li>
+        <li>
             <Link to="/about">About</Link>
         </li>
     </ul>
