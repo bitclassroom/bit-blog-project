@@ -1,8 +1,8 @@
 import React from 'react'
 
-const AlbumImage = ({ image }) => {
+const AlbumImage = ({ image, ...props }) => {
     return (
-        <div className="col s12 m3">
+        <div className="col s12 m4" {...props}>
             <div className="card">
                 <div className="card-image">
                     <img src={image.thumbnailUrl} alt="" />

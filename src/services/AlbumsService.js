@@ -25,7 +25,7 @@ class AlbumsService {
         return await Promise.all(albumPromises)
     }
 
-    async fetchPhotos(albumId, page = 1, limit = 4) {
+    async fetchPhotos(albumId, page = 1, limit = 8) {
         const options = {
             params: {
                 albumId,

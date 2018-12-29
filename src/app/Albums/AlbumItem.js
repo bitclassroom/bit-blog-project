@@ -1,46 +1,12 @@
-import React, { Component } from 'react'
-import AlbumImage from './AlbumImage'
-import { albumsService } from '../../services/AlbumsService'
+import React from 'react'
 
-class AlbumItem extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            photos: props.album.photos || []
-        }
-    }
+import AlbumImageSlider from './AlbumImageSlider'
 
-    navigateForward = async e => {
-        e.preventDefault()
-
-        const { id, photos } = this.props.album
-        const nextPhotos = await albumsService.fetchPhotos(id)
-
-        console.log(nextPhotos)
-
-        this.setState({
-            photos: [...photos, ...nextPhotos]
-        })
-    }
-
-    render() {
-        const { album } = this.props
-        const { photos } = this.state
-
-        return (
-            <>
-                <div className="row">
-                    <h5>{album.title}</h5>
-                    {photos.map(photo => (
-                        <AlbumImage image={photo} key={photo.id} />
-                    ))}
-                </div>
-                <div className="row">
-                    <hr />
-                </div>
-            </>
-        )
-    }
-}
+const AlbumItem = ({ album, ...props }) => (
+    <div className="row">
+        <h5>{album.title}</h5>
+        <AlbumImageSlider albumId={album.id} />
+    </div>
+)
 
 export default AlbumItem
