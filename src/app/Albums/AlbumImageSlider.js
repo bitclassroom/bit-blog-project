@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import { albumsService } from '../../services/AlbumsService'
 
 import AlbumImage from './AlbumImage'
+import Gallery from './Gallery'
 
 import './AlbumImageSlider.css'
 
@@ -18,6 +19,8 @@ class AlbumImageSlider extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            currentImage: 0,
+            isOpenGallery: false,
             images: []
         }
     }
@@ -37,18 +40,35 @@ class AlbumImageSlider extends Component {
         })
     }
 
+    openGallery = (index, event) => {
+        event.preventDefault()
+
+        this.setState({
+            currentImage: index,
+            isOpenGallery: true
+        })
+    }
+
     render() {
         const settings = {
             ...defaultSettings
         }
 
-        const { images } = this.state
+        const { images, isOpenGallery, currentImage } = this.state
+
         return (
-            <Slider ref={c => (this.slider = c)} {...settings}>
-                {images.map(image => (
-                    <AlbumImage image={image} key={image.id} />
-                ))}
-            </Slider>
+            <>
+                <Slider {...settings}>
+                    {images.map((image, index) => (
+                        <AlbumImage
+                            image={image}
+                            key={image.id}
+                            onClick={e => this.openGallery(index, e)}
+                        />
+                    ))}
+                </Slider>
+                <Gallery images={images} isOpen={isOpenGallery} currentImage={currentImage} />
+            </>
         )
     }
 }
