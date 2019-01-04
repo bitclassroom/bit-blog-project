@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const MainMenu = () => (
-    <ul className="right">
+    <>
         <li>
             <Link to="/">Home</Link>
         </li>
@@ -15,7 +15,7 @@ const MainMenu = () => (
         <li>
             <Link to="/about">About</Link>
         </li>
-    </ul>
+    </>
 )
 
 export default MainMenu
