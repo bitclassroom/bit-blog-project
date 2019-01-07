@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { postService } from '../../../services/PostService'
 
-class PostsFromAuthor extends Component {
+class RelatedPosts extends Component {
     state = {
         posts: []
     }
@@ -30,10 +30,24 @@ class PostsFromAuthor extends Component {
 
     renderPosts() {
         const { posts } = this.state
-        return posts.map(({ id, title }) => (
-            <Link to={`/posts/${id}`} key={id}>
-                <h5 className="truncate">- {title}</h5>
-            </Link>
+        return posts.map(({ id, title, photo }) => (
+            <div className="col s4 m4">
+                <div className="card">
+                    <div className="card-image">
+                        <img src={photo} alt="" />
+                    </div>
+                    <div className="card-stacked">
+                        <div className="card-content">
+                            <p className="truncate">{title}</p>
+                        </div>
+                        <div className="card-action">
+                            <Link to={`/posts/${id}`} key={id}>
+                                Read more
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
         ))
     }
 
@@ -41,15 +55,15 @@ class PostsFromAuthor extends Component {
         return (
             <>
                 <h5>Posts from same author</h5>
-                {this.renderPosts()}
+                <div className="row">{this.renderPosts()}</div>
             </>
         )
     }
 }
 
-PostsFromAuthor.propTypes = {
+RelatedPosts.propTypes = {
     authorId: PropTypes.number.isRequired,
     postId: PropTypes.number.isRequired
 }
 
-export default PostsFromAuthor
+export default RelatedPosts

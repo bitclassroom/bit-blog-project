@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { postService } from '../../services/PostService'
 
 import PostAuthor from './SinglePost/PostAuthor'
-import PostsFromAuthor from './SinglePost/PostsFromAuthor'
+import RelatedPosts from './SinglePost/RelatedPosts'
 import CommentsList from './Comments/CommentsList'
 
 class SinglePostPage extends Component {
@@ -59,7 +59,7 @@ class SinglePostPage extends Component {
                     </div>
                 </div>
                 <br />
-                <PostsFromAuthor authorId={authorId} postId={id} />
+                <RelatedPosts authorId={authorId} postId={id} />
                 <br />
                 <h5>Comments</h5>
                 <CommentsList postId={id} />
