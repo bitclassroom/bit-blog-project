@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { postService } from '../../services/PostService'
 
 import PostAuthor from './SinglePost/PostAuthor'
-import PostsFromAuthor from './SinglePost/PostsFromAuthor'
+import RelatedPosts from './SinglePost/RelatedPosts'
 import CommentsList from './Comments/CommentsList'
 
 class SinglePostPage extends Component {
@@ -39,17 +39,27 @@ class SinglePostPage extends Component {
             return <h3 className="center-align">Loading...</h3>
         }
 
-        const { id, title, body, authorId } = post
+        const { id, title, intro, photo, body, authorId } = post
 
         return (
             <>
                 <h3 className="center-align">{title}</h3>
                 <PostAuthor authorId={authorId} />
-                <div className="card-panel">
-                    <p className="flow-text">{body}</p>
+                <div className="card">
+                    {intro && (
+                        <div class="card-content">
+                            <p className="flow-text">{intro}</p>
+                        </div>
+                    )}
+                    <div class="card-image">
+                        <img src={photo} alt="" />
+                    </div>
+                    <div class="card-content">
+                        <p className="flow-text">{body}</p>
+                    </div>
                 </div>
                 <br />
-                <PostsFromAuthor authorId={authorId} postId={id} />
+                <RelatedPosts authorId={authorId} postId={id} />
                 <br />
                 <h5>Comments</h5>
                 <CommentsList postId={id} />
