@@ -3,7 +3,11 @@ import { BASE_API_ENDPOINT } from './constants'
 
 export const API = axios.create({
     baseURL: BASE_API_ENDPOINT,
-    timeout: 5000
+    timeout: 5000,
+    headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'B1tD3V'
+    }
 })
 
 // Alternative way to create abstraction over our network layer
