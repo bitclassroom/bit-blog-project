@@ -47,14 +47,14 @@ class SinglePostPage extends Component {
                 <PostAuthor authorId={authorId} />
                 <div className="card">
                     {intro && (
-                        <div class="card-content">
+                        <div className="card-content">
                             <p className="flow-text">{intro}</p>
                         </div>
                     )}
-                    <div class="card-image">
+                    <div className="card-image">
                         <img src={photo} alt="" />
                     </div>
-                    <div class="card-content">
+                    <div className="card-content">
                         <p className="flow-text">{body}</p>
                     </div>
                 </div>

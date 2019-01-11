@@ -26,6 +26,27 @@ class AlbumsService {
         return await Promise.all(albumPromises)
     }
 
+    fetchAlbumsThen(page = 1) {
+        const options = {
+            params: {
+                _page: page,
+                _limit: 5
+            }
+        }
+
+        return API.get('/albums', options).then(({ data }) => {
+            return data.map(albumData => {
+                const albumId = albumData.id
+                const album = new Album(albumData)
+
+                return this.fetchPhotos(albumId).then(photos => {
+                    album.addPhotos(photos)
+                    return album
+                })
+            })
+        })
+    }
+
     async fetchPhotos(albumId, page = 1, limit = 8) {
         const options = {
             params: {
