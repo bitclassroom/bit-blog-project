@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom'
 
 import M from 'materialize-css'
 
-import MainMenu from './MainMenu'
+import MainMenu from './MainMenu/MainMenu'
+import ViewMenuItem from './MainMenu/ViewMenuItem'
+
+const Menu = () => (
+    <MainMenu>
+        <ViewMenuItem />
+    </MainMenu>
+)
 
 const Header = () => {
     useEffect(() => {
@@ -26,11 +33,11 @@ const Header = () => {
                             BIT Blog
                         </Link>
                         <ul className="right hide-on-med-and-down">
-                            <MainMenu />
+                            <Menu />
                         </ul>
                     </div>
                     <ul className="sidenav" id="mobile-demo">
-                        <MainMenu />
+                        <Menu />
                     </ul>
                 </div>
             </nav>

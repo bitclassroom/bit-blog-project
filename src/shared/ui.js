@@ -14,5 +14,9 @@ export const ui = {
                 loadMore(event)
             }
         }
+    },
+
+    isHomePage() {
+        return window.location.hash.endsWith('#/')
     }
 }

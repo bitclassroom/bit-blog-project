@@ -31,7 +31,7 @@ class RelatedPosts extends Component {
     renderPosts() {
         const { posts } = this.state
         return posts.map(({ id, title, photo }) => (
-            <div className="col s4 m4">
+            <div className="col s4 m4" key={id}>
                 <div className="card">
                     <div className="card-image">
                         <img src={photo} alt="" />
