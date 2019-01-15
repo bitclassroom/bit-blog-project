@@ -1,17 +1,20 @@
 {
-    "name": "bit-show",
-    "version": "0.1.0",
-    "description": "Building a React Based Electron App",
+    "name": "bit-show-react",
+    "version": "1.0.0",
+    "description": "BIT Blog SPA - Building a React Based Electron App",
     "private": true,
     "author": "Marko Arsic <marsicdev@gmail.com>",
     "main": "public/electron.js",
     "homepage": "./",
+    "license": "MIT",
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
         "electron": "concurrently \"cross-env BROWSER=none yarn react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
+        "eject": "react-scripts eject",
         "precommit": "pretty-quick --staged",
+        "clean": "rm -rf node_modules/ && yarn cache clean",
         "reset": "rm -rf node_modules/ && yarn cache clean && yarn"
     },
     "dependencies": {
